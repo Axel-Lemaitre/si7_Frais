@@ -48,7 +48,8 @@
         <select id="lstMois" name="lstMois" title="Sélectionnez le mois souhaité pour la fiche de frais">
             <?php
                 // on propose tous les mois pour lesquels le visiteur a une fiche de frais
-                $req = obtenirReqMoisFicheFrais(obtenirIdUserConnecte());
+				// Utilisation de la nouvelle fonction optimisee
+                $req = obtenirReqMoisFicheFrais2(obtenirIdUserConnecte());
                 $idJeuMois = mysql_query($req, $idConnexion);
                 $lgMois = mysql_fetch_assoc($idJeuMois);
                 while ( is_array($lgMois) ) {

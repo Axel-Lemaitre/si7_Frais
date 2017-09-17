@@ -4,13 +4,16 @@ require('fpdf/fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',14);
-//$pdf->Cell(40,10,'Hello World !');
 $repInclude = './include/';
 require($repInclude . "_init.inc.php");
 
   // page inaccessible si visiteur non connecté
   if ( ! estVisiteurConnecte() ) {
       header("Location: cSeConnecter.php");  
+  }
+  
+if($pdf->GetPageWidth()<20) {
+	  header("Location: cSeConnecter.php");  
   }
   
   $moisSaisi=lireDonnee("mois", "");

@@ -211,6 +211,13 @@ function obtenirReqMoisFicheFrais($unIdVisiteur) {
             . $unIdVisiteur . "' order by FicheFrais.mois desc ";
     return $req ;
 }  
+
+function obtenirReqMoisFicheFrais2($unIdVisiteur) {
+    $req = "select mois from fichefrais where idvisiteur ='"
+            . $unIdVisiteur . "' order by 1 desc ";
+    return $req ;
+}  
+
                   
 /**
  * Retourne le texte de la requête select concernant les éléments forfaitisés 
